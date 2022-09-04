@@ -9,13 +9,15 @@ import dominio.Persona;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.jws.WebService;
 
 /**
  *
  * @author chech
  */
 @Stateless
-public class PersonaServicioImpl implements PersonaServicio{
+@WebService(endpointInterface = "servicio.PersonaServicioWS")
+public class PersonaServicioImpl implements PersonaServicio, PersonaServicioWS{
 
     @Inject
     PersonaDAO personaDAO;
