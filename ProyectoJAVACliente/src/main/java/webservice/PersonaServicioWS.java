@@ -27,6 +27,18 @@ public interface PersonaServicioWS {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<webservice.Persona>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarTodos", targetNamespace = "http://servicio/", className = "webservice.BuscarTodos")
+    @ResponseWrapper(localName = "buscarTodosResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/buscarTodosRequest", output = "http://servicio/PersonaServicioWS/buscarTodosResponse")
+    public List<Persona> buscarTodos();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns webservice.Persona
@@ -57,18 +69,6 @@ public interface PersonaServicioWS {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "eliminar", targetNamespace = "http://servicio/", className = "webservice.Eliminar")
-    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://servicio/", className = "webservice.EliminarResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/eliminarRequest", output = "http://servicio/PersonaServicioWS/eliminarResponse")
-    public void eliminar(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Persona arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
     @RequestWrapper(localName = "insertar", targetNamespace = "http://servicio/", className = "webservice.Insertar")
     @ResponseWrapper(localName = "insertarResponse", targetNamespace = "http://servicio/", className = "webservice.InsertarResponse")
     @Action(input = "http://servicio/PersonaServicioWS/insertarRequest", output = "http://servicio/PersonaServicioWS/insertarResponse")
@@ -78,14 +78,14 @@ public interface PersonaServicioWS {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<webservice.Persona>
+     * @param arg0
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarTodos", targetNamespace = "http://servicio/", className = "webservice.BuscarTodos")
-    @ResponseWrapper(localName = "buscarTodosResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/buscarTodosRequest", output = "http://servicio/PersonaServicioWS/buscarTodosResponse")
-    public List<Persona> buscarTodos();
+    @RequestWrapper(localName = "eliminar", targetNamespace = "http://servicio/", className = "webservice.Eliminar")
+    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://servicio/", className = "webservice.EliminarResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/eliminarRequest", output = "http://servicio/PersonaServicioWS/eliminarResponse")
+    public void eliminar(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Persona arg0);
 
 }
