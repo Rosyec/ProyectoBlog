@@ -44,16 +44,16 @@ public class Test {
 //
 //        System.out.println("Fin al Servicio Buscar Persona por ID!");
 
-        System.out.println("Actualizando Persona!");
-        Persona p = new Persona();
-        p.setIdpersona(7);
-        p.setNombre("CHECHO");
-        p.setApellido("PARRADO");
-        p.setEmail("chechomens@gmail.com");
-        p.setTelefono("3114486298");
-        System.out.println("Persona actualizada!");
-        
-        personaServicioWS.actualizar(p);
+//        System.out.println("Actualizando Persona!");
+//        Persona p = new Persona();
+//        p.setIdpersona(7);
+//        p.setNombre("CHECHO");
+//        p.setApellido("PARRADO");
+//        p.setEmail("chechomens@gmail.com");
+//        p.setTelefono("3114486298");
+//        System.out.println("Persona actualizada!");
+//        
+//        personaServicioWS.actualizar(p);
 
     }
 }

@@ -15,6 +15,11 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -25,6 +30,8 @@ import javax.persistence.OneToOne;
     @NamedQuery(name = "Blogs.findAll", query = "SELECT b FROM Blogs b"),
     @NamedQuery(name = "Blogs.findByIdblog", query = "SELECT b FROM Blogs b WHERE b.idblog = :idblog"),
     @NamedQuery(name = "Blogs.findByTitulo", query = "SELECT b FROM Blogs b WHERE b.titulo = :titulo")})
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Blogs implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,6 +44,7 @@ public class Blogs implements Serializable {
     private String contenido;
     @JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
     @OneToOne
+    @XmlTransient
     private Persona persona;
 
     public Blogs() {

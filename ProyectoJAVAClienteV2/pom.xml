@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany</groupId>
-    <artifactId>ProyectoJAVACliente</artifactId>
+    <artifactId>ProyectoJAVAClienteV2</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>ProyectoJAVACliente</name>
+    <name>ProyectoJAVAClienteV2</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -120,6 +120,7 @@
                         <configuration>
                             <wsdlUrls>
                                 <wsdlUrl>http://localhost:8080/PersonaServicioImplService/PersonaServicioImpl?wsdl</wsdlUrl>
+                                <wsdlUrl>http://localhost:8080/BlogServicioImplService/BlogServicioImpl?wsdl</wsdlUrl>
                             </wsdlUrls>
                             <packageName>
                                 webservice
@@ -128,6 +129,7 @@
                                 ${basedir}/src/main/java
                             </sourceDestDir>
                         </configuration>
+                        
                     </execution>
                 </executions>
             </plugin>

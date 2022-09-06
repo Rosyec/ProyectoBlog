@@ -27,6 +27,18 @@ public interface PersonaServicioWS {
 
     /**
      * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "actualizar", targetNamespace = "http://servicio/", className = "webservice.Actualizar")
+    @ResponseWrapper(localName = "actualizarResponse", targetNamespace = "http://servicio/", className = "webservice.ActualizarResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/actualizarRequest", output = "http://servicio/PersonaServicioWS/actualizarResponse")
+    public void actualizar(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Persona arg0);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<webservice.Persona>
      */
@@ -50,17 +62,17 @@ public interface PersonaServicioWS {
     @Action(input = "http://servicio/PersonaServicioWS/buscarPorIdRequest", output = "http://servicio/PersonaServicioWS/buscarPorIdResponse")
     public Persona buscarPorId(
         @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+        Persona arg0);
 
     /**
      * 
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "actualizar", targetNamespace = "http://servicio/", className = "webservice.Actualizar")
-    @ResponseWrapper(localName = "actualizarResponse", targetNamespace = "http://servicio/", className = "webservice.ActualizarResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/actualizarRequest", output = "http://servicio/PersonaServicioWS/actualizarResponse")
-    public void actualizar(
+    @RequestWrapper(localName = "eliminar", targetNamespace = "http://servicio/", className = "webservice.Eliminar")
+    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://servicio/", className = "webservice.EliminarResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/eliminarRequest", output = "http://servicio/PersonaServicioWS/eliminarResponse")
+    public void eliminar(
         @WebParam(name = "arg0", targetNamespace = "")
         Persona arg0);
 
@@ -73,18 +85,6 @@ public interface PersonaServicioWS {
     @ResponseWrapper(localName = "insertarResponse", targetNamespace = "http://servicio/", className = "webservice.InsertarResponse")
     @Action(input = "http://servicio/PersonaServicioWS/insertarRequest", output = "http://servicio/PersonaServicioWS/insertarResponse")
     public void insertar(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Persona arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "eliminar", targetNamespace = "http://servicio/", className = "webservice.Eliminar")
-    @ResponseWrapper(localName = "eliminarResponse", targetNamespace = "http://servicio/", className = "webservice.EliminarResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/eliminarRequest", output = "http://servicio/PersonaServicioWS/eliminarResponse")
-    public void eliminar(
         @WebParam(name = "arg0", targetNamespace = "")
         Persona arg0);
 
