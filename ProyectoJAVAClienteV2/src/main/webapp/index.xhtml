@@ -1,107 +1,84 @@
 <!DOCTYPE html>
 <html lang="en"
 xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
- xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+ xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 <title>Proyecto de Blogs</title>   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/>
 </h:head>
 
-<h:body>
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#" aria-label="Product">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-    </a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
-  </div>
-</nav>
+<h:body style="background-color: #f8f9fa;">
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light ">
-<p:graphicImage name="img/wallpaper.jpg"></p:graphicImage>
-  <div class="col-md-5 p-lg-5 mx-auto my-5">
-    <h1 class="display-4 font-weight-normal">#{ControladorPersona.titulo}</h1>
-    <p class="lead font-weight-normal">#{ControladorPersona.subTitulo}</p>
-    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+    <ui:include src="include-menu/menu.xhtml"></ui:include>
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/banner.png" class="d-block w-100" alt="..."/>
+        <div class="carousel-caption d-none d-md-block">
+        <h5>#{ControladorPersona.tituloSlider.get(0)}</h5>
+        <p>#{ControladorPersona.subtituloSlider.get(0)}</p>
+        <a class="btn btn-secondary" href="#">Muy pronto</a>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner-2.png" class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>#{ControladorPersona.tituloSlider.get(1)}</h5>
+        <p>#{ControladorPersona.subtituloSlider.get(1)}</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner-3.png" class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>#{ControladorPersona.tituloSlider.get(2)}</h5>
+        <p>#{ControladorPersona.subtituloSlider.get(2)}</p>
+      </div>
+    </div>
   </div>
-  <div class="product-device shadow-sm d-none d-md-block"></div>
-  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+ <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
 </div>
 
-<c:forEach var="persona" items="#{ControladorPersona.blogs}">
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 justify-content-center">
-  <div class="container-fluid bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">#{persona.titulo}</h2>
-      <p class="lead">#{persona.contenido}</p>
+
+
+<c:forEach var="blog" items="#{ControladorPersona.blogs}">
+<div class="d-md-flex flex-md-equal w-100 justify-content-center border-bottom my-4">
+  <div class="container-fluid mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <p:card class="bg-white mx-auto py-3" style="width: 60%; margin-bottom: 1em; border-radius: 21px 21px 21px 21px;">
+    <div class="p-3">
+      <h2 class="display-5">#{blog.titulo}</h2>
+      <p class="lead">#{blog.contenido}</p>
     </div>
-    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="container-fluid bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">#{persona.titulo}</h2>
-      <p class="lead">#{persona.contenido}</p>
-    </div>
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+    <div class="row">
+        <div class="col">
+            <img src="#{blog.url}" width="80%" style="background-size: auto"></img>
+                <br></br>
+                <br></br>
+            <p:linkButton outcome="detalleBlog" value="Ver Blog" onclick="#{ControladorPersona.buscarBlogPorId(blog)}"></p:linkButton>
+        </div>   
+    </div>     
+    </p:card>
   </div>
 </div>
 </c:forEach>
 
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-4 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-muted"> 2017-2022</small>
-    </div>
-    <div class="col-4 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
-    </div>
-    <div class="col-4 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Resource</a></li>
-        <li><a class="text-muted" href="#">Resource name</a></li>
-        <li><a class="text-muted" href="#">Another resource</a></li>
-        <li><a class="text-muted" href="#">Final resource</a></li>
-      </ul>
-    </div>
-    <div class="col-4 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
-        <li><a class="text-muted" href="#">Government</a></li>
-        <li><a class="text-muted" href="#">Gaming</a></li>
-      </ul>
-    </div>
-    <div class="col-4 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Locations</a></li>
-        <li><a class="text-muted" href="#">Privacy</a></li>
-        <li><a class="text-muted" href="#">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+<ui:include src="include-menu/footer.xhtml"></ui:include> 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

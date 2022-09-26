@@ -28,6 +28,21 @@ public interface PersonaServicioWS {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns webservice.Persona
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarPorId", targetNamespace = "http://servicio/", className = "webservice.BuscarPorId")
+    @ResponseWrapper(localName = "buscarPorIdResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorIdResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/buscarPorIdRequest", output = "http://servicio/PersonaServicioWS/buscarPorIdResponse")
+    public Persona buscarPorId(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Persona arg0);
+
+    /**
+     * 
+     * @param arg0
      */
     @WebMethod
     @RequestWrapper(localName = "actualizar", targetNamespace = "http://servicio/", className = "webservice.Actualizar")
@@ -48,21 +63,6 @@ public interface PersonaServicioWS {
     @ResponseWrapper(localName = "buscarTodosResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosResponse")
     @Action(input = "http://servicio/PersonaServicioWS/buscarTodosRequest", output = "http://servicio/PersonaServicioWS/buscarTodosResponse")
     public List<Persona> buscarTodos();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns webservice.Persona
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarPorId", targetNamespace = "http://servicio/", className = "webservice.BuscarPorId")
-    @ResponseWrapper(localName = "buscarPorIdResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorIdResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/buscarPorIdRequest", output = "http://servicio/PersonaServicioWS/buscarPorIdResponse")
-    public Persona buscarPorId(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Persona arg0);
 
     /**
      * 

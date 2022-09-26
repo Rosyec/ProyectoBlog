@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="idblog" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/&gt;
  *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="contenido" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="url" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="texto" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,13 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "blogs", propOrder = {
     "idblog",
     "titulo",
-    "contenido"
+    "contenido",
+    "url",
+    "texto"
 })
 public class Blogs {
 
     protected Integer idblog;
     protected String titulo;
     protected String contenido;
+    protected String url;
+    protected String texto;
 
     /**
      * Obtiene el valor de la propiedad idblog.
@@ -109,6 +115,54 @@ public class Blogs {
      */
     public void setContenido(String value) {
         this.contenido = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad url.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * Define el valor de la propiedad url.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setUrl(String value) {
+        this.url = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad texto.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTexto() {
+        return texto;
+    }
+
+    /**
+     * Define el valor de la propiedad texto.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTexto(String value) {
+        this.texto = value;
     }
 
 }
