@@ -5,7 +5,7 @@
 package servicio;
 
 import datos.BlogsDAO;
-import dominio.Blogs;
+import dominio.Blog;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,12 +23,12 @@ public class BlogServicioImpl implements BlogServicio, BlogServicioWS{
     BlogsDAO blogsDAO; 
 
     @Override
-    public List<Blogs> buscarTodosLosBlogs() {
+    public List<Blog> buscarTodosLosBlogs() {
         return blogsDAO.findAllBlogs();
     }
 
     @Override
-    public Blogs buscarBlogPorId(Blogs blogs) {
+    public Blog buscarBlogPorId(Blog blogs) {
         return blogsDAO.findBlogById(blogs);
     }
     

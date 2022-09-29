@@ -12,6 +12,7 @@ import javax.ejb.Local;
 public interface PersonaServicio {
     public List<Persona> buscarTodos();
     public Persona buscarPorId(Persona p);
+    public Persona buscarPorEmail(Persona p);
     public void insertar(Persona p);
     public void actualizar(Persona p);
     public void eliminar(Persona p);

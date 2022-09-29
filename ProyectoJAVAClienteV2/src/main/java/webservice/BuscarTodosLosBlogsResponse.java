@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://servicio/}blogs" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://servicio/}blog" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class BuscarTodosLosBlogsResponse {
 
     @XmlElement(name = "return")
-    protected List<Blogs> _return;
+    protected List<Blog> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class BuscarTodosLosBlogsResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Blogs }
+     * {@link Blog }
      * 
      * 
      */
-    public List<Blogs> getReturn() {
+    public List<Blog> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Blogs>();
+            _return = new ArrayList<Blog>();
         }
         return this._return;
     }

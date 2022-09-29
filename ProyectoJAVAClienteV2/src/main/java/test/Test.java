@@ -54,6 +54,19 @@ public class Test {
 //        System.out.println("Persona actualizada!");
 //        
 //        personaServicioWS.actualizar(p);
+//try{
+//    Persona perso = new Persona();
+//    //perso.setIdpersona(1);
+//    perso.setEmail("chechomens@gmail.com");
+//    Persona p = personaServicioWS.buscarPorEmail(perso);
+//        System.out.println("Id: " + p.getIdpersona());
+//        System.out.println("Nombre: " + p.getNombre());
+//        System.out.println("Apellido: " + p.getApellido());
+//        System.out.println("Email: " + p.getEmail());
+//        System.out.println("Telefono: " + p.getTelefono());
+//}catch(Exception e){
+//    e.printStackTrace();
+//}
 
     }
 }

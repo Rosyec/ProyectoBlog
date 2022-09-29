@@ -14,28 +14,28 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import servicio.ServicioLocal;
 import webservice.BlogServicioImplService;
 import webservice.BlogServicioWS;
-import webservice.Blogs;
+import webservice.Blog;
 import webservice.Persona;
+import webservice.PersonaServicioImplService;
+import webservice.PersonaServicioWS;
 
 
 @Named("ControladorPersona")
 @SessionScoped
 public class PersonaBean implements Serializable{
     BlogServicioWS blogServicioWS = new BlogServicioImplService().getBlogServicioImplPort();
+    PersonaServicioWS personaServicioWS = new PersonaServicioImplService().getPersonaServicioImplPort();
     
     static Logger log = LogManager.getRootLogger();
     
-    @Inject
-    ServicioLocal servicioLocal;
     
-    private Blogs blogSeleccionado;
+    private Blog blogSeleccionado;
     
     List<Persona> personas;
     
-    List<Blogs> blogs;
+    List<Blog> blogs;
        
     private List<String> tituloSlider = new ArrayList<>(3);
     private List<String> subtituloSlider = new ArrayList<>(3);
@@ -53,11 +53,11 @@ public class PersonaBean implements Serializable{
         subtituloSlider.add(0, "Si buscas un cuadro abstracto, estas en el lugar indicado.");
         subtituloSlider.add(1, "Lo mas popular en todo el mundo.");
         subtituloSlider.add(2, "Elige el marco de tu preferencia.");
-        personas = servicioLocal.listarPersonas();
+        personas = personaServicioWS.buscarTodos();
         blogs = blogServicioWS.buscarTodosLosBlogs();
     }
     
-    public Blogs buscarBlogPorId(Blogs blog){
+    public Blog buscarBlogPorId(Blog blog){
         blogSeleccionado = blog;
         log.debug("Blog Seleccionado: ");
         log.debug(blog);
@@ -81,11 +81,11 @@ public class PersonaBean implements Serializable{
         this.persona = persona;
     }
 
-    public List<Blogs> getBlogs() {
+    public List<Blog> getBlogs() {
         return blogs;
     }
 
-    public void setBlogs(List<Blogs> blogs) {
+    public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
     }
 

@@ -27,29 +27,29 @@ public interface BlogServicioWS {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<webservice.Blogs>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarTodosLosBlogs", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogs")
-    @ResponseWrapper(localName = "buscarTodosLosBlogsResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogsResponse")
-    @Action(input = "http://servicio/BlogServicioWS/buscarTodosLosBlogsRequest", output = "http://servicio/BlogServicioWS/buscarTodosLosBlogsResponse")
-    public List<Blogs> buscarTodosLosBlogs();
-
-    /**
-     * 
      * @param arg0
      * @return
-     *     returns webservice.Blogs
+     *     returns webservice.Blog
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "buscarBlogPorId", targetNamespace = "http://servicio/", className = "webservice.BuscarBlogPorId")
     @ResponseWrapper(localName = "buscarBlogPorIdResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarBlogPorIdResponse")
     @Action(input = "http://servicio/BlogServicioWS/buscarBlogPorIdRequest", output = "http://servicio/BlogServicioWS/buscarBlogPorIdResponse")
-    public Blogs buscarBlogPorId(
+    public Blog buscarBlogPorId(
         @WebParam(name = "arg0", targetNamespace = "")
-        Blogs arg0);
+        Blog arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<webservice.Blog>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarTodosLosBlogs", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogs")
+    @ResponseWrapper(localName = "buscarTodosLosBlogsResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogsResponse")
+    @Action(input = "http://servicio/BlogServicioWS/buscarTodosLosBlogsRequest", output = "http://servicio/BlogServicioWS/buscarTodosLosBlogsResponse")
+    public List<Blog> buscarTodosLosBlogs();
 
 }

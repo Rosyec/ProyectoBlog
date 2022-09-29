@@ -4,7 +4,7 @@
  */
 package datos;
 
-import dominio.Blogs;
+import dominio.Blog;
 import java.util.List;
 
 /**
@@ -12,6 +12,6 @@ import java.util.List;
  * @author chech
  */
 public interface BlogsDAO {
-    public List<Blogs> findAllBlogs(); 
-    public Blogs findBlogById(Blogs blogs);
+    public List<Blog> findAllBlogs(); 
+    public Blog findBlogById(Blog blog);
 }

@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para blogs complex type.
+ * <p>Clase Java para blog complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="blogs"&gt;
+ * &lt;complexType name="blog"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -30,14 +30,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "blogs", propOrder = {
+@XmlType(name = "blog", propOrder = {
     "idblog",
     "titulo",
     "contenido",
     "url",
     "texto"
 })
-public class Blogs {
+public class Blog {
 
     protected Integer idblog;
     protected String titulo;

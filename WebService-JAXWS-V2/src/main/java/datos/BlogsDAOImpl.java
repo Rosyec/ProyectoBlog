@@ -4,8 +4,7 @@
  */
 package datos;
 
-import dominio.Blogs;
-import dominio.Persona;
+import dominio.Blog;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,17 +24,17 @@ public class BlogsDAOImpl implements BlogsDAO{
     EntityTransaction transaction = em.getTransaction();
 
     @Override
-    public List<Blogs> findAllBlogs() {
+    public List<Blog> findAllBlogs() {
         transaction.begin();
-        List<Blogs> blogses = em.createNamedQuery("Blogs.findAll").getResultList();
+        List<Blog> blogses = em.createNamedQuery("Blog.findAll").getResultList();
         transaction.commit();
         return blogses;
     }
 
     @Override
-    public Blogs findBlogById(Blogs blogs) {
+    public Blog findBlogById(Blog blogs) {
         transaction.begin();
-        Blogs blogs1 = em.find(Blogs.class, blogs.getIdblog());
+        Blog blogs1 = em.find(Blog.class, blogs.getIdblog());
         transaction.commit();
         return blogs1;
     }

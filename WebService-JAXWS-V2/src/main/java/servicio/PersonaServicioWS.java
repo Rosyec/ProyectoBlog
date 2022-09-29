@@ -20,6 +20,8 @@ public interface PersonaServicioWS {
     @WebMethod
     public Persona buscarPorId(Persona p);
     @WebMethod
+    public Persona buscarPorEmail(Persona p);
+    @WebMethod
     public void insertar(Persona p);
     @WebMethod
     public void actualizar(Persona p);

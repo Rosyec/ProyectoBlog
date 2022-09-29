@@ -31,6 +31,11 @@ public class PersonaServicioImpl implements PersonaServicio, PersonaServicioWS{
     public Persona buscarPorId(Persona p) {
         return personaDAO.findById(p);
     }
+    
+    @Override
+    public Persona buscarPorEmail(Persona p) {
+        return personaDAO.findByEmail(p);
+    }
 
     @Override
     public void insertar(Persona p) {

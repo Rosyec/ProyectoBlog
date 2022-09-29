@@ -10,42 +10,48 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author chech
  */
 @Entity
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Blogs.findAll", query = "SELECT b FROM Blogs b"),
-    @NamedQuery(name = "Blogs.findByIdblog", query = "SELECT b FROM Blogs b WHERE b.idblog = :idblog"),
-    @NamedQuery(name = "Blogs.findByTitulo", query = "SELECT b FROM Blogs b WHERE b.titulo = :titulo")})
-public class Blogs implements Serializable {
+    @NamedQuery(name = "Blog.findAll", query = "SELECT b FROM Blog b"),
+    @NamedQuery(name = "Blog.findByIdblog", query = "SELECT b FROM Blog b WHERE b.idblog = :idblog")})
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Blog implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Integer idblog;
-    @Size(max = 45)
+    @Lob
+    @Size(max = 2147483647)
     private String titulo;
     @Lob
     @Size(max = 2147483647)
     private String contenido;
-    @JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
-    @OneToOne
-    private Persona persona;
+    @Lob
+    @Size(max = 2147483647)
+    private String url;
+    @Lob
+    @Size(max = 2147483647)
+    private String texto;
 
-    public Blogs() {
+    public Blog() {
     }
 
-    public Blogs(Integer idblog) {
+    public Blog(Integer idblog) {
         this.idblog = idblog;
     }
 
@@ -73,12 +79,20 @@ public class Blogs implements Serializable {
         this.contenido = contenido;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
     @Override
@@ -91,10 +105,10 @@ public class Blogs implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Blogs)) {
+        if (!(object instanceof Blog)) {
             return false;
         }
-        Blogs other = (Blogs) object;
+        Blog other = (Blog) object;
         if ((this.idblog == null && other.idblog != null) || (this.idblog != null && !this.idblog.equals(other.idblog))) {
             return false;
         }
@@ -103,7 +117,7 @@ public class Blogs implements Serializable {
 
     @Override
     public String toString() {
-        return "test.Blogs[ idblog=" + idblog + " ]";
+        return "dominio.Blog[ idblog=" + idblog + " ]";
     }
     
 }

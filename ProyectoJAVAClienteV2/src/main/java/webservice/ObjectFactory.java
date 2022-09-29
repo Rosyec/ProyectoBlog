@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Blogs_QNAME = new QName("http://servicio/", "blogs");
+    private final static QName _Blog_QNAME = new QName("http://servicio/", "blog");
     private final static QName _BuscarBlogPorId_QNAME = new QName("http://servicio/", "buscarBlogPorId");
     private final static QName _BuscarBlogPorIdResponse_QNAME = new QName("http://servicio/", "buscarBlogPorIdResponse");
     private final static QName _BuscarTodosLosBlogs_QNAME = new QName("http://servicio/", "buscarTodosLosBlogs");
@@ -38,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Blogs }
+     * Create an instance of {@link Blog }
      * 
      */
-    public Blogs createBlogs() {
-        return new Blogs();
+    public Blog createBlog() {
+        return new Blog();
     }
 
     /**
@@ -78,16 +78,16 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Blogs }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Blog }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Blogs }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link Blog }{@code >}
      */
-    @XmlElementDecl(namespace = "http://servicio/", name = "blogs")
-    public JAXBElement<Blogs> createBlogs(Blogs value) {
-        return new JAXBElement<Blogs>(_Blogs_QNAME, Blogs.class, null, value);
+    @XmlElementDecl(namespace = "http://servicio/", name = "blog")
+    public JAXBElement<Blog> createBlog(Blog value) {
+        return new JAXBElement<Blog>(_Blog_QNAME, Blog.class, null, value);
     }
 
     /**

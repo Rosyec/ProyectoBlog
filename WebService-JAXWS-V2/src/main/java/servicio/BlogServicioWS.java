@@ -4,7 +4,7 @@
  */
 package servicio;
 
-import dominio.Blogs;
+import dominio.Blog;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -16,7 +16,7 @@ import javax.jws.WebService;
 @WebService
 public interface BlogServicioWS {
     @WebMethod
-    public List<Blogs> buscarTodosLosBlogs();
+    public List<Blog> buscarTodosLosBlogs();
     @WebMethod
-    public Blogs buscarBlogPorId(Blogs blogs);
+    public Blog buscarBlogPorId(Blog blogs);
 }

@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
@@ -35,6 +36,22 @@ public class PersonaDAOImpl implements PersonaDAO{
         Persona persona = (Persona) em.find(Persona.class, p.getIdpersona());
         transaction.commit();
         return persona;
+    }
+    
+    @Override
+    public Persona findByEmail(Persona p) {
+        if (!em.getTransaction().isActive()) {
+            transaction.begin();
+        }
+        
+        try{
+        Persona persona = (Persona) em.createNamedQuery("Persona.findByEmail", Persona.class).setParameter("email", p.getEmail()).getSingleResult();
+        transaction.commit();
+        return persona;
+        
+        }catch(NoResultException e){
+            return null;
+        }       
     }
 
     @Override

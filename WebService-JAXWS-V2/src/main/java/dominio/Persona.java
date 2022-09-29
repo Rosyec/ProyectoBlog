@@ -47,9 +47,7 @@ public class Persona implements Serializable {
     private String email;
     @Size(max = 45)
     private String telefono;
-    @OneToOne(mappedBy = "idpersona")
-    @XmlTransient
-    private Blogs blogs;
+
 
     public Persona() {
     }
@@ -96,14 +94,6 @@ public class Persona implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public Blogs getBlogs() {
-        return blogs;
-    }
-
-    public void setBlogs(Blogs blogs) {
-        this.blogs = blogs;
     }
 
     @Override
