@@ -27,6 +27,18 @@ public interface BlogServicioWS {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<webservice.Blog>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarTodosLosBlogs", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogs")
+    @ResponseWrapper(localName = "buscarTodosLosBlogsResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogsResponse")
+    @Action(input = "http://servicio/BlogServicioWS/buscarTodosLosBlogsRequest", output = "http://servicio/BlogServicioWS/buscarTodosLosBlogsResponse")
+    public List<Blog> buscarTodosLosBlogs();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns webservice.Blog
@@ -39,17 +51,5 @@ public interface BlogServicioWS {
     public Blog buscarBlogPorId(
         @WebParam(name = "arg0", targetNamespace = "")
         Blog arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<webservice.Blog>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarTodosLosBlogs", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogs")
-    @ResponseWrapper(localName = "buscarTodosLosBlogsResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarTodosLosBlogsResponse")
-    @Action(input = "http://servicio/BlogServicioWS/buscarTodosLosBlogsRequest", output = "http://servicio/BlogServicioWS/buscarTodosLosBlogsResponse")
-    public List<Blog> buscarTodosLosBlogs();
 
 }

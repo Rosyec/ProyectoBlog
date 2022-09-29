@@ -29,29 +29,32 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-windows" viewBox="0 0 16 16">
                             <path d="M6.555 1.375 0 2.237v5.45h6.555V1.375zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16V0z"/>
                             </svg>
-                            <h1 class="h3 mb-3 mt-3 fw-normal"> Iniciar Sesión</h1>
+                            <h1 class="h3 mb-3 mt-3 fw-normal"> Registro</h1>
                             <div class="form-floating">
-                                <p:outputLabel for="email" class="lead">Correo electronico</p:outputLabel>
-                                <p:inputText class="form-control" id="email" value="#{ControladorLogin.email}" placeholder="correo" required="true"/>                               
-                            </div>
-                            <div class="form-floating mt-1">
-                                <p:outputLabel for="telefono" class="lead">Teléfono</p:outputLabel>
-                                <p:inputText class="form-control" id="telefono" value="#{ControladorLogin.telefono}" placeholder="Teléfono" required="true"/>                               
+                                <p:outputLabel for="nombre" class="lead">Nombre</p:outputLabel>
+                                <p:inputText class="form-control" id="nombre" value="#{ControladorRegister.nombre}" placeholder="Nombre" required="true"/>                               
                             </div>
 
-                            <div class="checkbox mb-3 mt-3">
-                                <label>
-                                    <input type="checkbox" value="remember-me"/> Recuerdame
-                                </label>
+                            <div class="form-floating">
+                                <p:outputLabel for="apellido" class="lead">Apellido</p:outputLabel>
+                                <p:inputText class="form-control" id="apellido" value="#{ControladorRegister.apellido}" placeholder="Apellido" required="true"/>                               
                             </div>
-                            <h:commandButton class="w-100 btn btn-lg btn-dark" action="#{ControladorLogin.login()}" value="Ingresar" type="submit"></h:commandButton>
-                            
-                            <a class="text-dark" href="register.xhtml">No tengo cuenta</a>
-                            
-                            <c:if test="#{ControladorLogin.onError}">                                                             
-                                <div class="card card-body mt-3 alert-danger">
-                                    <h5 class="card-title">Error</h5>
-                                    <p class="card-text">Usuario no encontrado!</p>                                   
+
+                            <div class="form-floating">
+                                <p:outputLabel for="email" class="lead">Correo electronico</p:outputLabel>
+                                <p:inputText class="form-control" id="email" value="#{ControladorRegister.email}" placeholder="Correo" required="true"/>                               
+                            </div>
+
+                            <div class="form-floating mt-1">
+                                <p:outputLabel for="telefono" class="lead">Teléfono</p:outputLabel>
+                                <p:inputText class="form-control" id="telefono" value="#{ControladorRegister.telefono}" placeholder="Teléfono" required="true"/>                               
+                            </div>
+
+                            <h:commandButton class="w-100 mt-5 btn btn-lg btn-dark" action="#{ControladorRegister.registrar()}" value="Registrarme" type="submit"></h:commandButton>
+                            <c:if test="#{ControladorRegister.succes}">                                                             
+                                <div class="card card-body mt-3 alert-success">
+                                    <h5 class="card-title">Enhorabuena</h5>
+                                    <p class="card-text">Usuario registrado!</p>                                   
                                 </div>
                             </c:if>
 
