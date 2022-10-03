@@ -51,6 +51,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
                             </div>
 
                             <h:commandButton class="w-100 mt-5 btn btn-lg btn-dark" action="#{ControladorRegister.registrar()}" value="Registrarme" type="submit"></h:commandButton>
+                            <a class="text-dark" href="login.xhtml">Regresar</a>
                             <c:if test="#{ControladorRegister.succes}">                                                             
                                 <div class="card card-body mt-3 alert-success">
                                     <h5 class="card-title">Enhorabuena</h5>

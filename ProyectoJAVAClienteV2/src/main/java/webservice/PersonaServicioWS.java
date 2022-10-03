@@ -28,15 +28,12 @@ public interface PersonaServicioWS {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns webservice.Persona
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarPorId", targetNamespace = "http://servicio/", className = "webservice.BuscarPorId")
-    @ResponseWrapper(localName = "buscarPorIdResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorIdResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/buscarPorIdRequest", output = "http://servicio/PersonaServicioWS/buscarPorIdResponse")
-    public Persona buscarPorId(
+    @RequestWrapper(localName = "insertar", targetNamespace = "http://servicio/", className = "webservice.Insertar")
+    @ResponseWrapper(localName = "insertarResponse", targetNamespace = "http://servicio/", className = "webservice.InsertarResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/insertarRequest", output = "http://servicio/PersonaServicioWS/insertarResponse")
+    public void insertar(
         @WebParam(name = "arg0", targetNamespace = "")
         Persona arg0);
 
@@ -67,12 +64,15 @@ public interface PersonaServicioWS {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns webservice.Persona
      */
     @WebMethod
-    @RequestWrapper(localName = "insertar", targetNamespace = "http://servicio/", className = "webservice.Insertar")
-    @ResponseWrapper(localName = "insertarResponse", targetNamespace = "http://servicio/", className = "webservice.InsertarResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/insertarRequest", output = "http://servicio/PersonaServicioWS/insertarResponse")
-    public void insertar(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "buscarPorEmail", targetNamespace = "http://servicio/", className = "webservice.BuscarPorEmail")
+    @ResponseWrapper(localName = "buscarPorEmailResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorEmailResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/buscarPorEmailRequest", output = "http://servicio/PersonaServicioWS/buscarPorEmailResponse")
+    public Persona buscarPorEmail(
         @WebParam(name = "arg0", targetNamespace = "")
         Persona arg0);
 
@@ -96,10 +96,10 @@ public interface PersonaServicioWS {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "buscarPorEmail", targetNamespace = "http://servicio/", className = "webservice.BuscarPorEmail")
-    @ResponseWrapper(localName = "buscarPorEmailResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorEmailResponse")
-    @Action(input = "http://servicio/PersonaServicioWS/buscarPorEmailRequest", output = "http://servicio/PersonaServicioWS/buscarPorEmailResponse")
-    public Persona buscarPorEmail(
+    @RequestWrapper(localName = "buscarPorId", targetNamespace = "http://servicio/", className = "webservice.BuscarPorId")
+    @ResponseWrapper(localName = "buscarPorIdResponse", targetNamespace = "http://servicio/", className = "webservice.BuscarPorIdResponse")
+    @Action(input = "http://servicio/PersonaServicioWS/buscarPorIdRequest", output = "http://servicio/PersonaServicioWS/buscarPorIdResponse")
+    public Persona buscarPorId(
         @WebParam(name = "arg0", targetNamespace = "")
         Persona arg0);
 

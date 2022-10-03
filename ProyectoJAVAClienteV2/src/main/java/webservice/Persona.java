@@ -165,10 +165,4 @@ public class Persona {
         this.telefono = value;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "idpersona=" + idpersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
-    }
-    
-
 }

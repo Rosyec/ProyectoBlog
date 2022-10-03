@@ -55,12 +55,6 @@ public class LoginBean implements Serializable{
             return "login";
         }
     }
-    
-    public String logout(){
-        personaLog = null;
-        log.debug("LOGOUT RESPONSE: " + personaLog);
-        return "login.xhtml";
-    }
 
     public String getEmail() {
         return email;
